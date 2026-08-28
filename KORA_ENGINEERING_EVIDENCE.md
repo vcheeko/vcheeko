@@ -115,6 +115,7 @@ Private tests also exercise properties including:
 - project, task-package and starting-state binding;
 - mutation detection after task-hash binding;
 - autonomy-budget enforcement;
+- arbitrary-shell denial even for an otherwise authoritative source;
 - destructive-action denial;
 - encoded/path-traversal scope rejection;
 - web/file prompt-injection treated as untrusted input;
