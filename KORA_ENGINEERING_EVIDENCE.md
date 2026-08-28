@@ -7,7 +7,7 @@ This page separates **what is currently evidenced in private engineering** from 
 
 ## Current evidence level
 
-**Golden Demo status:** a bounded private CI vertical slice now covers persistent state, verification, interruption recovery, least-privilege database access and a real Node-to-PostgreSQL protocol-driver path in ephemeral CI. The full Golden Demo is **not yet verified for release and is not publicly reproducible**.
+**Golden Demo status:** a bounded private CI vertical slice covers persistent state, verification, interruption recovery, least-privilege database access, adversarial evidence/replay hardening and a real Node-to-PostgreSQL protocol-driver path in ephemeral CI. A small public harness now reproduces selected published evidence semantics. The private runtime is **not** publicly reproduced and the full Golden Demo is **not yet verified for release**.
 
 The central rule remains:
 
@@ -17,20 +17,27 @@ PREPARED ≠ EXECUTED ≠ VERIFIED ≠ PUBLICLY REPRODUCED
 
 ## Latest private CI evidence — sanitized summary
 
-A private KORA OPS validation run on 2026-08-28 completed successfully with:
+A private KORA OPS validation candidate on 2026-08-28 completed successfully with:
 
 - pinned Node/npm toolchain and registry verification;
 - dependency-lock SHA-256 verification;
 - reproducible install with lifecycle scripts disabled;
-- dependency audit at high severity threshold;
+- dependency audit at high severity threshold with no reported vulnerabilities in that run;
 - a real PostgreSQL 16 persistence integration probe against an ephemeral CI database;
 - least-privilege database permission/attack checks;
-- a real Node PostgreSQL protocol-driver integration through that bounded database capability;
-- 115 repository tests discovered: 114 PASS, 0 FAIL, 1 expected skip because the live-driver case is executed separately with a real database in the integration step;
+- exact first-Golden evidence/provenance/verifier database hardening;
+- terminal replay re-validation of persisted verifier/evidence binding;
+- real Node PostgreSQL protocol-driver integration through the bounded database capability;
+- non-allowlisted SQL rejection at the driver seam;
+- `verify-full` policy for non-loopback database targets;
+- isolated transient driver installation followed by restoration of the locked dependency graph;
+- transactional application of security-sensitive migration files in CI;
+- 119 repository tests discovered: 118 PASS, 0 FAIL, 1 expected skip because the live-driver case is executed separately with a real database in the integration step;
+- separate live-driver integration: 2 PASS, 0 FAIL;
 - TypeScript typecheck;
 - production build.
 
-This remains **private CI evidence**, not a public-source reproduction. Internal credentials, machine identifiers, private logs, exact role names and implementation-sensitive configuration are intentionally not published here.
+This remains **private CI evidence**, not public reproduction of the private runtime. Internal credentials, machine identifiers, private logs, exact role names and implementation-sensitive configuration are intentionally not published here.
 
 ## What the current private vertical slice exercises
 
@@ -52,12 +59,13 @@ The persistence/recovery path exercises properties including:
 
 - exact task and starting-state binding;
 - replay-safe completion: an exact completed request returns its prior result rather than running the worker again;
+- terminal replay re-validates the exact expected evidence set and persisted verifier binding;
 - interruption while `RUNNING` never causes automatic worker replay when evidence is incomplete;
 - restart after complete evidence persistence can continue without rerunning the worker;
 - restart from `EVIDENCE_CAPTURED` continues through verification using persisted evidence;
 - restart after verifier persistence can finalize verification without rewriting the verifier result;
 - restart from `VERIFIED` can finalize completion without rewriting verified evidence;
-- partial or contradictory persistence state fails closed;
+- partial, forged or contradictory persistence state fails closed;
 - `COMPLETED` remains unreachable without verified evidence;
 - a late failure cannot erase an already verified canonical state.
 
@@ -65,20 +73,25 @@ The persistence/recovery path exercises properties including:
 
 The persistence contract is no longer tested only through mocks or textual SQL checks.
 
-Private CI starts an ephemeral PostgreSQL 16 instance, applies the actual persistence and permission definitions, then checks:
+Private CI starts an ephemeral PostgreSQL 16 instance, applies the actual persistence/security definitions and checks:
 
 - new-run creation and exact replay;
 - immutable binding conflicts;
-- evidence and verifier state gates;
+- exact evidence and verifier state gates;
+- arbitrary evidence-ID rejection;
+- forged provenance rejection;
+- forged read-only change-set rejection;
+- forged verifier-identity rejection;
 - exact replay versus conflicting evidence/verifier bindings;
 - VERIFIED-state immutability;
 - final completion/readback;
 - explicit failure persistence;
 - absence of ambient public database authority;
 - a dedicated runtime capability can use only the intended database interface;
-- direct persistence-table reads/writes are denied to that runtime capability;
+- direct persistence-table reads/writes are denied;
 - direct calls to internal persistence routines are denied;
-- schema-write authority is denied.
+- schema-write authority is denied;
+- security-sensitive migration files are exercised transactionally.
 
 The database, test principal and runtime capability are temporary and removed after the proof. No production database or production credential is activated by this evidence.
 
@@ -94,12 +107,26 @@ The private proof checks that:
 - query values remain separate from SQL text;
 - non-allowlisted SQL is rejected before database execution;
 - exact replay returns the previously persisted result without duplicate worker execution;
-- non-local connections are TLS-required by default;
+- non-loopback connections use `verify-full` policy;
 - any plaintext exception is restricted to explicit loopback CI use;
 - the driver candidate is version/integrity checked before the ephemeral test;
-- the transient probe does not modify the committed dependency graph.
+- the transient driver probe is isolated, then the locked repository dependency graph is restored before the main suite.
 
 This demonstrates a **real protocol-driver seam in CI**, not production dependency activation or deployment.
+
+## Public evidence-contract reproduction
+
+A dependency-free public harness is now available at [`public-evidence/kora-golden-v0.1/`](public-evidence/kora-golden-v0.1/), with the [Golden Reproduction Protocol](KORA_GOLDEN_REPRODUCTION_PROTOCOL.md).
+
+The public GitHub Actions workflow has executed the harness from the public repository and returned the expected results for synthetic vectors:
+
+- valid terminal evidence/verifier binding → PASS;
+- forged verifier evidence-set hash → FAIL;
+- missing expected evidence → FAIL.
+
+This makes those **published example semantics** inspectable and reproducible without an npm dependency or private source access.
+
+It does **not** prove that the private KORA runtime is the same implementation, that private CI evidence is genuine, or that production KORA has been reproduced by an independent third party.
 
 ## Broader security properties already under automated test
 
@@ -132,37 +159,27 @@ Private tests also exercise properties including:
 
 **Current evidence:** private PASS.
 
-The bounded authenticated task contract, project/task/state binding and fail-closed precheck are covered by private tests.
-
 ### M2 — Bounded execution
 
 **Current evidence:** private CI bounded-slice PASS; **production/external executor integration remains open**.
 
-One deterministic allowlisted read-only worker executes within an explicit bounded contract, and replay/restart logic prevents accidental duplicate execution. The public claim does not extend to arbitrary or consequential executor authority.
-
 ### M3 — Verification + evidence
 
-**Current evidence:** private CI persistent-state + least-privilege DB PASS; **production deployment remains open**.
-
-Worker evidence is stored separately from verifier state; VERIFIED requires expected evidence and verifier PASS; COMPLETED remains gated behind VERIFIED. Persistence and permission boundaries have been exercised against a real ephemeral PostgreSQL engine.
+**Current evidence:** private CI hardened persistent-state + least-privilege DB PASS; **production deployment remains open**.
 
 ### M4 — Failure injection + recovery
 
 **Current evidence:** private CI interruption/recovery PASS for the current bounded slice; **broader deployment/external-adapter matrix remains open**.
 
-The current matrix covers worker failure, partial evidence, evidence conflict, verifier conflict, replay, state tampering, restart after evidence persistence, restart after verifier persistence and preservation of VERIFIED state.
-
 ### M5 — Restart continuity
 
 **Current evidence:** private CI persistent restart/recovery + real protocol-driver PASS for the current bounded slice; **deployed multi-process/provider continuity remains open**.
 
-Persisted state reconstructs the next safe action without relying on conversational memory or silently rerunning the worker, and the bounded path has been exercised through a real Node-to-PostgreSQL connection in ephemeral CI.
-
 ### M6 — Sanitized public proof
 
-**Current evidence:** public evidence surface IN PROGRESS.
+**Current evidence:** public evidence-contract harness CI PASS; **independent returned evidence and private-runtime reproduction remain open**.
 
-This profile contains the public showcase, evidence index, scorecard, review template, pilot protocol and evidence changelog. Final Golden Demo publication still requires the remaining release gates and disclosure review.
+The public harness is a stronger evidence surface than prose alone, but it must not be upgraded into a claim that private KORA has been independently reproduced.
 
 ## What is explicitly NOT claimed
 
@@ -174,36 +191,28 @@ The current evidence does not yet prove:
 - a committed/activated production PostgreSQL driver dependency;
 - production-like multi-process/provider continuity;
 - independent third-party technical/security acceptance;
-- public third-party reproduction;
+- public reproduction of the private runtime;
 - real pilot reliability or product-market fit.
 
 ## Release gate
 
-A public **KORA Golden Demo v0.1** should only be announced when the final acceptance matrix is:
-
-```text
-M1 CONTRACT/PRECHECK ........ PASS
-M2 BOUNDED EXECUTION ........ PASS
-M3 VERIFICATION/EVIDENCE .... PASS
-M4 FAILURE/RECOVERY ......... PASS
-M5 RESTART CONTINUITY ....... PASS
-M6 PUBLIC PROOF PACKAGE ..... PASS
-```
+A public **KORA Golden Demo v0.1** should only be announced when remaining review, disclosure and pilot/release gates support that exact claim.
 
 Until then, the correct public status is **prototype / evidence-building**.
 
-## What comes after the Golden Demo
+## What comes next
 
-The credibility ladder after v0.1 is:
+The credibility ladder is:
 
 1. independent technical/security review;
 2. findings recorded by severity rather than hidden;
 3. fixes linked to those findings;
-4. a real but low-risk pilot workflow;
-5. manual-vs-KORA baseline metrics;
-6. repeated runs showing reliability rather than a one-off success.
+4. independent returned evidence against the public harness and reviewed private scope where appropriate;
+5. a real but low-risk pilot workflow;
+6. manual-vs-KORA baseline metrics;
+7. repeated runs showing reliability rather than a one-off success.
 
-Useful pilot metrics include user interactions, manual transfers/copy-paste, elapsed time, incorrect state transitions, recovery success and percentage of consequential actions backed by verification evidence.
+Useful pilot metrics include user interactions, manual transfers/copy-paste, elapsed time, incorrect state transitions, duplicate execution, recovery success and percentage of terminal claims backed by expected verification evidence.
 
 ---
 
