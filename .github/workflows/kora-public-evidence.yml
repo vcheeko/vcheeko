@@ -5,12 +5,14 @@ on:
     paths:
       - "KORA_GOLDEN_REPRODUCTION_PROTOCOL.md"
       - "public-evidence/kora-golden-v0.1/**"
+      - "public-evidence/kora-golden-v0.2/**"
       - ".github/workflows/kora-public-evidence.yml"
   push:
     branches: [main]
     paths:
       - "KORA_GOLDEN_REPRODUCTION_PROTOCOL.md"
       - "public-evidence/kora-golden-v0.1/**"
+      - "public-evidence/kora-golden-v0.2/**"
       - ".github/workflows/kora-public-evidence.yml"
 
 permissions:
@@ -34,5 +36,8 @@ jobs:
       - name: Verify toolchain
         run: test "$(node --version)" = "v22.14.0"
 
-      - name: Reproduce public Golden evidence semantics
+      - name: Reproduce public Golden evidence semantics v0.1
         run: node public-evidence/kora-golden-v0.1/verify.mjs
+
+      - name: Reproduce adversarial Golden evidence semantics v0.2
+        run: node public-evidence/kora-golden-v0.2/verify.mjs
