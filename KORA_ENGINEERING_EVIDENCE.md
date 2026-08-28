@@ -7,7 +7,7 @@ This page separates **what is currently evidenced in private engineering** from 
 
 ## Current evidence level
 
-**Golden Demo status:** a bounded private CI vertical slice now exists, but the full Golden Demo runtime is **not yet verified for release and is not publicly reproducible**.
+**Golden Demo status:** a bounded private CI vertical slice now covers persistent state, verification, interruption recovery and a real ephemeral PostgreSQL engine. The full Golden Demo is **not yet verified for release and is not publicly reproducible**.
 
 The central rule remains:
 
@@ -17,46 +17,66 @@ PREPARED ≠ EXECUTED ≠ VERIFIED ≠ PUBLICLY REPRODUCED
 
 ## Latest private CI evidence — sanitized summary
 
-Private KORA OPS commit `bd73fbf092005b4f48115f3aa39260a9bb937b12` passed the `validate` GitHub Actions workflow on 2026-08-28.
-
-That validation pipeline performs:
+A private KORA OPS validation run on 2026-08-28 completed successfully with:
 
 - pinned Node/npm toolchain and registry verification;
 - dependency-lock SHA-256 verification;
 - reproducible `npm ci` with lifecycle scripts disabled;
 - dependency audit at high severity threshold;
-- automated tests;
+- a real PostgreSQL 16 persistence integration probe against an ephemeral CI database;
+- 113 automated tests;
 - TypeScript typecheck;
 - production build.
 
-All of those workflow steps completed successfully for the cited vertical-slice commit. This is **private CI evidence**, not a public-source reproduction.
+This remains **private CI evidence**, not a public-source reproduction. Internal credentials, machine identifiers, private logs and implementation-sensitive configuration are intentionally not published here.
 
 ## What the current private vertical slice exercises
 
-The Golden E2E test path now models:
+The Golden path models:
 
 ```text
 PRECHECKED
   → RUNNING
   → bounded read-only worker
   → EVIDENCE_CAPTURED
-  → independent verifier state
+  → verifier PASS
   → VERIFIED
   → COMPLETED
 ```
 
-The first worker capability is deliberately narrow: it audits only the expected files supplied through an explicitly bounded server-side snapshot. It does not spawn processes, execute shell commands, perform network I/O or mutate project state.
+The first worker capability is deliberately narrow: it operates only on explicitly bounded input, has no arbitrary shell authority, performs no ambient network activity and cannot silently expand scope.
 
-Current private tests additionally check that:
+The persistence/recovery path now exercises properties including:
 
-- a persisted `RUNNING` state cannot execute twice;
-- missing required worker input fails closed;
-- insufficient evidence cannot become VERIFIED;
-- COMPLETED is unreachable before verifier PASS;
-- run state can be serialized/restored with integrity protection;
-- state tampering is rejected;
-- an injected worker failure remains FAILED after restore;
-- human briefing is projected from canonical run state rather than conversational memory.
+- exact task and starting-state binding;
+- replay-safe completion: an exact completed request returns its prior result rather than running the worker again;
+- interruption while `RUNNING` never causes automatic worker replay when evidence is incomplete;
+- a restart after complete evidence persistence can continue from that evidence without rerunning the worker;
+- a restart from `EVIDENCE_CAPTURED` continues through verification using persisted evidence;
+- a restart after verifier persistence can finalize verification without rerunning the verifier write;
+- a restart from `VERIFIED` can finalize completion without rewriting verified evidence;
+- partial or contradictory persistence state fails closed;
+- `COMPLETED` remains unreachable without verified evidence;
+- a late failure cannot erase an already verified canonical state.
+
+## Real PostgreSQL engine evidence
+
+The persistence contract is no longer tested only through mocks or textual SQL checks.
+
+Private CI now starts an ephemeral PostgreSQL 16 instance available on the CI runner, applies the actual migration and exercises the real database functions for:
+
+- new-run creation and exact replay;
+- immutable binding conflicts;
+- evidence-state gates;
+- exact evidence replay versus conflicting evidence;
+- verifier-state gates;
+- exact verifier replay versus conflicting verifier binding;
+- VERIFIED-state immutability;
+- final completion/readback;
+- explicit failure persistence;
+- denial of ambient `PUBLIC` privileges for Golden persistence tables and routines.
+
+The database is temporary and removed after the test. No production database, application credentials or deployment role are activated by this proof.
 
 ## Broader security properties already under automated test
 
@@ -93,33 +113,33 @@ The bounded authenticated task contract, project/task/state binding and fail-clo
 
 ### M2 — Bounded execution
 
-**Current evidence:** private CI vertical-slice PASS; **final runtime gate remains open**.
+**Current evidence:** private CI vertical-slice PASS; **production/application integration remains open**.
 
-The vertical slice demonstrates one deterministic allowlisted read-only worker over a bounded snapshot with no ambient filesystem/network/shell authority. Remaining work includes integration with the intended canonical persistent runtime path rather than only the isolated test slice.
+One deterministic allowlisted read-only worker executes within an explicit bounded contract, and replay/restart logic prevents accidental duplicate execution. The public claim does not extend to arbitrary or consequential executor authority.
 
 ### M3 — Verification + evidence
 
-**Current evidence:** private CI state-gate PASS; **final persistence/integration gate remains open**.
+**Current evidence:** private CI persistent-state PASS; **production deployment remains open**.
 
-The slice keeps worker evidence separate from the verifier state, requires evidence before VERIFIED, and makes COMPLETED unreachable without verifier PASS. Canonical persistent evidence-store integration remains to be completed.
+Worker evidence is stored separately from verifier state; VERIFIED requires the expected evidence and verifier PASS; COMPLETED remains gated behind VERIFIED. The persistence model has also been exercised against a real ephemeral PostgreSQL engine.
 
 ### M4 — Failure injection + recovery
 
-**Current evidence:** limited private CI PASS; **full matrix remains open**.
+**Current evidence:** private CI interruption/recovery PASS for the current bounded slice; **broader production matrix remains open**.
 
-Current tests cover missing worker input, insufficient evidence, replay blocking, state tamper rejection and explicit worker failure. Still required: broader interrupted-run, stale-state, malformed evidence, unauthorized expansion and bounded recovery scenarios through the integrated runtime path.
+The current matrix covers worker failure, partial evidence, evidence conflict, verifier conflict, replay, state tampering, restart after evidence persistence, restart after verifier persistence and preservation of VERIFIED state. Broader external-adapter and deployment failures are still future gates.
 
 ### M5 — Restart continuity
 
-**Current evidence:** private serialization/restore PASS; **canonical persistent-store restart gate remains open**.
+**Current evidence:** private CI persistent restart/recovery PASS for the current bounded slice; **deployed multi-process/provider continuity remains open**.
 
-The test slice can serialize and restore content-addressed run state and reject tampering. Full process/provider restart reconstruction must still be proven from canonical persistence rather than an in-test serialized envelope alone.
+Canonical persisted state can reconstruct whether the next safe action is recovery, verification, finalization or manual review without relying on conversational memory and without silently rerunning the worker.
 
 ### M6 — Sanitized public proof
 
 **Current evidence:** public evidence surface IN PROGRESS.
 
-This profile now contains the public showcase, evidence index, scorecard, review template, pilot protocol and evidence changelog. A final Golden Demo proof package must wait for the remaining integrated runtime gates.
+This profile contains the public showcase, evidence index, scorecard, review template, pilot protocol and evidence changelog. The final Golden Demo proof package still requires the remaining release gates and disclosure review.
 
 ## What is explicitly NOT claimed
 
@@ -127,11 +147,11 @@ The current evidence does not yet prove:
 
 - a production-ready autonomous system;
 - arbitrary or consequential executor authority;
-- a complete persistent runtime Golden Demo;
-- the entire failure/recovery matrix;
+- a live production database or application DB role;
+- a live application PostgreSQL driver exercising the runtime adapter in deployment;
 - independent third-party technical acceptance;
 - public third-party reproduction;
-- product-market fit.
+- real pilot reliability or product-market fit.
 
 ## Release gate
 
