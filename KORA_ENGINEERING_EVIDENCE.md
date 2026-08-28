@@ -118,7 +118,7 @@ This demonstrates a **real protocol-driver seam in CI**, not production dependen
 
 A dependency-free public harness is now available at [`public-evidence/kora-golden-v0.1/`](public-evidence/kora-golden-v0.1/), with the [Golden Reproduction Protocol](KORA_GOLDEN_REPRODUCTION_PROTOCOL.md).
 
-The public CI harness has independently executed from the public repository and returned the expected results for synthetic vectors:
+The public GitHub Actions workflow has executed the harness from the public repository and returned the expected results for synthetic vectors:
 
 - valid terminal evidence/verifier binding → PASS;
 - forged verifier evidence-set hash → FAIL;
