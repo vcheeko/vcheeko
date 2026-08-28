@@ -14,7 +14,8 @@ A human-directed operating layer for reliable AI-assisted work across models and
 
 KORA explores persistent project state, dependencies, risk-proportional authority, bounded execution, verification, recovery and continuation. The implementation and security-sensitive engineering remain private; the public material intentionally exposes only the product thesis, architecture and evidence boundary.
 
-**[View the KORA public showcase](KORA_PUBLIC_SHOWCASE.md)**
+- **[Public showcase](KORA_PUBLIC_SHOWCASE.md)**
+- **[Engineering evidence & Golden Demo scorecard](KORA_EVIDENCE_INDEX.md)**
 
 ### TRI-GLAV
 
