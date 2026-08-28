@@ -1,0 +1,75 @@
+{
+  "schema": "KORA-PUBLIC-GOLDEN-VECTORS-0.1",
+  "note": "Synthetic public examples only; not exported private KORA evidence.",
+  "expected_evidence_ids": [
+    "artifact_hash",
+    "changed_files"
+  ],
+  "expected_verifier_id": "kora:public-example-verifier-v0.1",
+  "vectors": [
+    {
+      "name": "valid_completed",
+      "expected": "PASS",
+      "state": "COMPLETED",
+      "failure_code": null,
+      "evidence": [
+        {
+          "evidence_id": "artifact_hash",
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "provenance": "worker:public-example-read-only"
+        },
+        {
+          "evidence_id": "changed_files",
+          "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "provenance": "worker:public-example-read-only"
+        }
+      ],
+      "verifier": {
+        "verdict": "PASS",
+        "evidence_set_hash": "7216334871c90e56f3a4c40398f5c55b2f977bd463a956271585345e2291eed9",
+        "verifier_id": "kora:public-example-verifier-v0.1"
+      }
+    },
+    {
+      "name": "forged_verifier_hash",
+      "expected": "FAIL",
+      "state": "COMPLETED",
+      "failure_code": null,
+      "evidence": [
+        {
+          "evidence_id": "artifact_hash",
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "provenance": "worker:public-example-read-only"
+        },
+        {
+          "evidence_id": "changed_files",
+          "content_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "provenance": "worker:public-example-read-only"
+        }
+      ],
+      "verifier": {
+        "verdict": "PASS",
+        "evidence_set_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "verifier_id": "kora:public-example-verifier-v0.1"
+      }
+    },
+    {
+      "name": "missing_expected_evidence",
+      "expected": "FAIL",
+      "state": "COMPLETED",
+      "failure_code": null,
+      "evidence": [
+        {
+          "evidence_id": "artifact_hash",
+          "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "provenance": "worker:public-example-read-only"
+        }
+      ],
+      "verifier": {
+        "verdict": "PASS",
+        "evidence_set_hash": "7216334871c90e56f3a4c40398f5c55b2f977bd463a956271585345e2291eed9",
+        "verifier_id": "kora:public-example-verifier-v0.1"
+      }
+    }
+  ]
+}
