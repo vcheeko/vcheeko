@@ -7,23 +7,21 @@ This page separates **what is currently evidenced in private engineering** from 
 
 ## Current evidence level
 
-**Golden Demo status:** M1 contract / precheck evidence exists; end-to-end execution is **not yet publicly verified**.
+**Golden Demo status:** a bounded private CI vertical slice now exists, but the full Golden Demo runtime is **not yet verified for release and is not publicly reproducible**.
 
-The current private KORA OPS Golden-task contract is deliberately fail-closed. Its reviewed test contract reaches `PRECHECKED`, returns a PASS precheck verdict for a valid bounded task, and explicitly keeps execution disabled at this milestone.
-
-That distinction matters:
+The central rule remains:
 
 ```text
-PREPARED ≠ EXECUTED ≠ VERIFIED
+PREPARED ≠ EXECUTED ≠ VERIFIED ≠ PUBLICLY REPRODUCED
 ```
 
-KORA should not claim a Golden Demo as complete until execution, evidence generation, verification, recovery and restart continuity have all crossed their acceptance gates.
+## Latest private CI evidence — sanitized summary
 
-## Private CI evidence — sanitized summary
+Private KORA OPS commit `bd73fbf092005b4f48115f3aa39260a9bb937b12` passed the `validate` GitHub Actions workflow on 2026-08-28.
 
-The private KORA OPS repository currently has an automated validation workflow that performs:
+That validation pipeline performs:
 
-- pinned Node/npm toolchain verification;
+- pinned Node/npm toolchain and registry verification;
 - dependency-lock SHA-256 verification;
 - reproducible `npm ci` with lifecycle scripts disabled;
 - dependency audit at high severity threshold;
@@ -31,11 +29,38 @@ The private KORA OPS repository currently has an automated validation workflow t
 - TypeScript typecheck;
 - production build.
 
-A reviewed Golden E2E contract pull request has passed that validation workflow. This remains **private CI evidence**, not a publicly reproducible result.
+All of those workflow steps completed successfully for the cited vertical-slice commit. This is **private CI evidence**, not a public-source reproduction.
 
-## Security / failure properties already under automated test
+## What the current private vertical slice exercises
 
-Private tests currently exercise properties including:
+The Golden E2E test path now models:
+
+```text
+PRECHECKED
+  → RUNNING
+  → bounded read-only worker
+  → EVIDENCE_CAPTURED
+  → independent verifier state
+  → VERIFIED
+  → COMPLETED
+```
+
+The first worker capability is deliberately narrow: it audits only the expected files supplied through an explicitly bounded server-side snapshot. It does not spawn processes, execute shell commands, perform network I/O or mutate project state.
+
+Current private tests additionally check that:
+
+- a persisted `RUNNING` state cannot execute twice;
+- missing required worker input fails closed;
+- insufficient evidence cannot become VERIFIED;
+- COMPLETED is unreachable before verifier PASS;
+- run state can be serialized/restored with integrity protection;
+- state tampering is rejected;
+- an injected worker failure remains FAILED after restore;
+- human briefing is projected from canonical run state rather than conversational memory.
+
+## Broader security properties already under automated test
+
+Private tests also exercise properties including:
 
 - exact bounded Golden-task schema;
 - rejection of arbitrary command/shell fields;
@@ -58,100 +83,59 @@ Private tests currently exercise properties including:
 - dependency-change requirements for digest pinning, provenance and disabled install scripts;
 - tool/depth/retry/wall-clock autonomy limits.
 
-These are meaningful engineering properties, but they do **not** by themselves prove the entire KORA product loop.
-
 ## Golden Demo acceptance ladder
 
 ### M1 — Contract + precheck
 
-**State:** evidenced privately.
+**Current evidence:** private PASS.
 
-Required behavior:
-
-- bounded task schema;
-- authenticated request;
-- exact project/task/state binding;
-- security gates pass;
-- no arbitrary shell;
-- execution remains disabled until the next explicit milestone.
+The bounded authenticated task contract, project/task/state binding and fail-closed precheck are covered by private tests.
 
 ### M2 — Bounded execution
 
-**State:** not yet claimed complete here.
+**Current evidence:** private CI vertical-slice PASS; **final runtime gate remains open**.
 
-Must demonstrate:
-
-- one allowlisted executor;
-- one non-sensitive demo task;
-- strict changed-file/runtime/attempt budget;
-- no scope expansion;
-- immutable starting-state reference;
-- explicit execution result.
+The vertical slice demonstrates one deterministic allowlisted read-only worker over a bounded snapshot with no ambient filesystem/network/shell authority. Remaining work includes integration with the intended canonical persistent runtime path rather than only the isolated test slice.
 
 ### M3 — Verification + evidence
 
-**State:** not yet claimed complete here.
+**Current evidence:** private CI state-gate PASS; **final persistence/integration gate remains open**.
 
-Must demonstrate:
-
-- execution result is not trusted automatically;
-- artifact hash / changed-files evidence;
-- verifier PASS/FAIL result;
-- state changes to VERIFIED only after evidence passes;
-- failed or insufficient evidence cannot become DONE.
+The slice keeps worker evidence separate from the verifier state, requires evidence before VERIFIED, and makes COMPLETED unreachable without verifier PASS. Canonical persistent evidence-store integration remains to be completed.
 
 ### M4 — Failure injection + recovery
 
-**State:** not yet claimed complete here.
+**Current evidence:** limited private CI PASS; **full matrix remains open**.
 
-Deliberately inject at least:
-
-- executor failure;
-- malformed/insufficient evidence;
-- unauthorized scope expansion;
-- changed starting state or stale task;
-- interrupted run.
-
-Expected outcome:
-
-- fail closed;
-- preserve canonical state;
-- mark blocked/failed explicitly;
-- produce a bounded recovery path;
-- never convert failure into a success claim.
+Current tests cover missing worker input, insufficient evidence, replay blocking, state tamper rejection and explicit worker failure. Still required: broader interrupted-run, stale-state, malformed evidence, unauthorized expansion and bounded recovery scenarios through the integrated runtime path.
 
 ### M5 — Restart continuity
 
-**State:** not yet claimed complete here.
+**Current evidence:** private serialization/restore PASS; **canonical persistent-store restart gate remains open**.
 
-Must prove that after process/session restart KORA can reconstruct:
-
-- last verified state;
-- unresolved blocker;
-- evidence reference;
-- next valid action;
-- whether new human authority is required.
+The test slice can serialize and restore content-addressed run state and reject tampering. Full process/provider restart reconstruction must still be proven from canonical persistence rather than an in-test serialized envelope alone.
 
 ### M6 — Sanitized public proof
 
-**State:** target.
+**Current evidence:** public evidence surface IN PROGRESS.
 
-Publish a deliberately non-sensitive evidence package containing:
+This profile now contains the public showcase, evidence index, scorecard, review template, pilot protocol and evidence changelog. A final Golden Demo proof package must wait for the remaining integrated runtime gates.
 
-- demo version and commit identifier;
-- acceptance criteria;
-- test categories and result counts;
-- CI conclusion;
-- failure-injection results;
-- hashes of public demo artifacts where safe;
-- known limitations;
-- exact distinction between private evidence and public reproduction.
+## What is explicitly NOT claimed
 
-No credentials, machine identifiers, private logs, exact security boundaries or proprietary implementation details should be included.
+The current evidence does not yet prove:
+
+- a production-ready autonomous system;
+- arbitrary or consequential executor authority;
+- a complete persistent runtime Golden Demo;
+- the entire failure/recovery matrix;
+- independent third-party technical acceptance;
+- public third-party reproduction;
+- product-market fit.
 
 ## Release gate
 
-A public **KORA Golden Demo v0.1** should only be announced when all of the following are true:
+A public **KORA Golden Demo v0.1** should only be announced when the final acceptance matrix is:
 
 ```text
 M1 CONTRACT/PRECHECK ........ PASS
@@ -169,8 +153,8 @@ Until then, the correct public status is **prototype / evidence-building**.
 The credibility ladder after v0.1 is:
 
 1. independent technical review;
-2. issues published with findings and severity;
-3. fixes linked to the review findings;
+2. findings recorded by severity rather than hidden;
+3. fixes linked to those findings;
 4. a real but low-risk pilot workflow;
 5. manual-vs-KORA baseline metrics;
 6. repeated runs showing reliability rather than a one-off success.
