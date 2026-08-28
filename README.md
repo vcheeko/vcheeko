@@ -16,19 +16,21 @@ KORA explores persistent project state, dependencies, risk-proportional authorit
 
 - **[Public showcase](KORA_PUBLIC_SHOWCASE.md)**
 - **[Engineering evidence & Golden Demo scorecard](KORA_EVIDENCE_INDEX.md)**
-
-### TRI-GLAV
-
-An outdoor-safety product concept focused on helping people prepare better, navigate more reliably and return home safely. The current public implementation is a responsive landing page; the larger mobile-product vision includes offline navigation, hazards, weather context, check-ins and emergency support.
-
-- **[Live site](https://vcheeko.github.io/tri-glav-website/)**
-- **[Repository](https://github.com/vcheeko/tri-glav-website)**
+- **[Public Golden Demo target](KORA_PUBLIC_GOLDEN_DEMO_ARCHITECTURE.md)**
 
 ### The First Second
 
-A simulation-game experiment about time, identity, physics, memory and nested realities. The public repository separates long-term cinematic 3D ambition from the small browser mechanics experiments used to test ideas first.
+A simulation-game experiment about time, identity, physics, memory and nested realities. The public repository separates long-term cinematic 3D ambition from small browser mechanics experiments used to test ideas first. Its current public engineering surface includes extracted mechanics, automated tests and a pinned CI quality gate.
 
 **[View the repository](https://github.com/vcheeko/the-first-second)**
+
+### TRI-GLAV
+
+An outdoor-safety product concept focused on helping people prepare better, navigate more reliably and return home safely. The current public implementation is a responsive landing page with repository quality checks; the larger mobile-product vision remains explicitly separated from implemented functionality.
+
+- **[Official live site — tri-glav.si](https://www.tri-glav.si/)**
+- **[Repository](https://github.com/vcheeko/tri-glav-website)**
+- [GitHub Pages preview](https://vcheeko.github.io/tri-glav-website/)
 
 ## How I build with AI
 
@@ -95,7 +97,7 @@ I'm building KORA while continuing to strengthen implementation depth through re
 
 - [LinkedIn](https://www.linkedin.com/in/miha-tavcar-773502101/)
 - [GitHub repositories](https://github.com/vcheeko?tab=repositories)
-- [TRI-GLAV](https://vcheeko.github.io/tri-glav-website/)
+- [TRI-GLAV — official site](https://www.tri-glav.si/)
 
 ---
 
