@@ -8,21 +8,28 @@ I am not presenting myself as a senior software engineer. My strongest current v
 
 ## Selected work
 
-### KORA
+### KORAKO YOLAWANI
 
 A human-directed operating layer for reliable AI-assisted work across models and tools.
 
-KORA explores persistent project state, dependencies, risk-proportional authority, bounded execution, verification, recovery and continuation. The implementation and security-sensitive engineering remain private; the public material intentionally exposes only the product thesis, architecture and evidence boundary.
+Korako Yolawani explores persistent project state, dependencies, risk-proportional authority, bounded execution, verification, recovery and continuation. **KORAKO** means the next right step; **YOLAWANI** represents the wider human-centered system around those steps.
+
+The implementation and security-sensitive engineering remain private; the public material intentionally exposes only the product thesis, architecture and evidence boundary. Earlier files and technical identifiers may still use the legacy name **KORA** while compatibility is preserved.
 
 - **[Public showcase](KORA_PUBLIC_SHOWCASE.md)**
 - **[Engineering evidence & Golden Demo scorecard](KORA_EVIDENCE_INDEX.md)**
 
 ### TRI-GLAV
 
-An outdoor-safety product concept focused on helping people prepare better, navigate more reliably and return home safely. The current public implementation is a responsive landing page; the larger mobile-product vision includes offline navigation, hazards, weather context, check-ins and emergency support.
+An outdoor-safety product concept focused on helping people prepare better, navigate more reliably and return home safely.
 
-- **[Live site](https://vcheeko.github.io/tri-glav-website/)**
-- **[Repository](https://github.com/vcheeko/tri-glav-website)**
+The primary public domain is **[www.tri-glav.si](https://www.tri-glav.si/)**. The site currently published there is a work in progress, not a finished application or a claim that planned safety capabilities are operational.
+
+The GitHub Pages site and its repository contain the first public website concept. They are retained as development history and are not the canonical live presentation.
+
+- **[Primary live domain — work in progress](https://www.tri-glav.si/)**
+- **[First website concept repository](https://github.com/vcheeko/tri-glav-website)**
+- **[Historical GitHub Pages preview](https://vcheeko.github.io/tri-glav-website/)**
 
 ### The First Second
 
@@ -83,9 +90,9 @@ I care particularly about:
 
 ## Current direction
 
-I'm building KORA while continuing to strengthen implementation depth through real projects. I'm open to:
+I'm building **Korako Yolawani** while continuing to strengthen implementation depth through real projects. I'm open to:
 
-- a technical co-founder / lead engineer for KORA;
+- a technical co-founder / lead engineer for Korako Yolawani;
 - AI/product and junior software-development opportunities;
 - pilot partners with measurable multi-step workflows;
 - reliability, security, evaluation and product-UX collaboration;
@@ -95,7 +102,7 @@ I'm building KORA while continuing to strengthen implementation depth through re
 
 - [LinkedIn](https://www.linkedin.com/in/miha-tavcar-773502101/)
 - [GitHub repositories](https://github.com/vcheeko?tab=repositories)
-- [TRI-GLAV](https://vcheeko.github.io/tri-glav-website/)
+- [TRI-GLAV](https://www.tri-glav.si/)
 
 ---
 
