@@ -37,6 +37,14 @@ A simulation-game experiment about time, identity, physics, memory and nested re
 
 **[View the repository](https://github.com/vcheeko/the-first-second)**
 
+### NEXST
+
+An exploratory interplanetary resource-ledger concept focused on a concrete systems question: how should locally useful state behave when Earth and Mars cannot continuously synchronize because communication is delayed?
+
+The project deliberately starts with small reproducible simulations rather than assuming blockchain is the answer. It is a concept/engineering study, not a deployed protocol, token, resource guarantee or third-party integration.
+
+**[View the repository](https://github.com/vcheeko/nexts-interplanetary-ledger)**
+
 ## How I build with AI
 
 I treat AI as a powerful engineering collaborator, not as proof that a result is correct.
