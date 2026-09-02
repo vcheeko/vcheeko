@@ -15,6 +15,13 @@ Building ambitious products with AI while keeping **human authority, explicit st
 
 **A human-directed operating layer for reliable AI-assisted work across models, tools and long-running projects.**
 
+**Public product / brand:** **KORAKO YOLAWANI**  
+**Internal orchestration core:** **KORA**
+
+KORA is the core that coordinates governed execution inside Korako Yolawani; it is **not** the public product name or founder identity.
+
+The journey metaphor also draws philosophical inspiration from the Japanese **道 (*michi*) — “path / way”**, including **人生の道 (*jinsei no michi*) — “the path of life.”** This is inspiration for the product philosophy, not a claim that “Korako Yolawani” is a Japanese translation.
+
 Korako is being designed around a simple problem: capable AI can do individual tasks, but people still carry too much of the coordination burden — remembering state, moving information between tools, resolving dependencies, approving consequential actions, checking whether execution really happened, and recovering when something fails.
 
 **Current stage:** prototype / evidence-building  
@@ -41,7 +48,7 @@ Korako is being designed around a simple problem: capable AI can do individual t
 
 | Project | What it explores | Public status |
 | --- | --- | --- |
-| **KORAKO YOLAWANI** | Human-directed AI workflow orchestration, persistence, permissions, verification and recovery | **Prototype / evidence-building** · core private |
+| **KORAKO YOLAWANI** | Human-directed AI workflow orchestration, persistence, permissions, verification and recovery | **Prototype / evidence-building** · KORA core private |
 | **[TRI-GLAV](https://github.com/vcheeko/tri-glav-website)** | Outdoor safety, route context and safer decision-making before and during mountain trips | Public website concept · [tri-glav.si](https://www.tri-glav.si/) is work in progress |
 | **[THE FIRST SECOND](https://github.com/vcheeko/the-first-second)** | A simulation-game experiment about time, identity, physics, memory and nested realities | First playable mechanics experiment |
 
@@ -69,7 +76,7 @@ My strongest contribution is at the intersection of **product vision, systems de
 
 ## Public / private boundary
 
-For Korako, the public GitHub is intentionally a **diligence surface, not a source dump**.
+For Korako Yolawani, the public GitHub is intentionally a **diligence surface, not a source dump**.
 
 **Public by design**
 - product problem and thesis;
@@ -78,7 +85,7 @@ For Korako, the public GitHub is intentionally a **diligence surface, not a sour
 - current stage, limitations and collaboration needs.
 
 **Private by design**
-- canonical implementation and security-sensitive internals;
+- the canonical **KORA core implementation** and security-sensitive internals;
 - credentials, machine configuration and operational logs;
 - exact approval/security boundaries;
 - unpublished IP-sensitive material.
