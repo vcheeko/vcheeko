@@ -7,6 +7,14 @@
 **Canonical implementation:** private  
 **Public purpose:** a safe diligence surface for the product thesis, architecture, evidence discipline and current limitations
 
+## Identity and naming
+
+**KORAKO YOLAWANI** is the public product and brand identity.
+
+**KORA** is the internal orchestration core — the governed system layer that coordinates state, planning, permissions, execution, verification and continuation. KORA is **not** the public product name and should not be used as the founder identity.
+
+The journey metaphor also draws philosophical inspiration from the Japanese **道 (*michi*)**, meaning **“path / way.”** A related expression is **人生の道 (*jinsei no michi*) — “the path of life.”** This is a philosophical reference for the product’s focus on human journeys and next steps, not a claim that “Korako Yolawani” is a Japanese translation.
+
 Korako Yolawani is being designed to reduce the coordination burden that appears when AI work becomes multi-step, long-running and spread across models, tools and systems.
 
 The product direction is not "more autonomy at any cost." The goal is to make complex AI-assisted work **easier to continue, easier to verify and safer to control**.
@@ -69,11 +77,11 @@ Public claims should stay narrower than the strongest available evidence.
 
 Private development has exercised prototype work around governed workflows, verification, evidence contracts, bounded execution, safe-parallelism rules, recovery concepts and local bridge experiments.
 
-The public repository does **not** expose the canonical implementation, detailed security boundaries, credentials, machine-specific configuration or private operational evidence chains.
+The public repository does **not** expose the canonical KORA core implementation, detailed security boundaries, credentials, machine-specific configuration or private operational evidence chains.
 
 For the sanitized evidence surface, see the **[Public Evidence Index](KORA_EVIDENCE_INDEX.md)**.
 
-Some evidence files still use **KORA** as a legacy engineering identifier. **Korako Yolawani is the current public product identity.** Legacy names are retained where changing them could damage evidence continuity or historical traceability.
+Some evidence files still use **KORA** in their filenames because they document the internal core and preserve engineering/evidence continuity. **Korako Yolawani remains the public product identity.**
 
 ## What Korako is not claiming today
 
