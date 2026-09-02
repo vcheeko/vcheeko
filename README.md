@@ -116,6 +116,22 @@ Based in **Ljubljana, Slovenia**. I work in **Slovenian, German, English and Cro
 
 ---
 
+## Founder’s note — why Korako?
+
+Korako did not start as a name looking for a product. It started from a repeated frustration while working with AI: the models could often do individual tasks well, but I still had to become the **human postman** between conversations, tools and systems — carrying context, remembering what had already happened, deciding what should happen next, checking whether something was actually done and recovering when the chain broke.
+
+That led to a simple idea: instead of asking AI only for answers, build a system that helps a person move through complex work **one meaningful step at a time** while keeping the human in control.
+
+The name **Korako** grew from that idea of *koraki* — steps. **Yolawani** represents the wider human journey around those steps: not only completing tasks, but preserving continuity, context and the story of where a person is going.
+
+There is also a small personal coincidence I like: my name is **Miha**, while the Japanese word **道 (*michi*)** means *path* or *way*. The sounds are close enough to make me smile, and **人生の道 (*jinsei no michi*) — “the path of life”** fits the philosophy behind Korako unusually well.
+
+It is not the linguistic origin of my name or a translation of Korako Yolawani. It is simply one of those coincidences that made the idea feel a little more personal.
+
+**KORA is the core. Korako Yolawani is the product. The human journey is the reason for both.**
+
+---
+
 <div align="center">
 
 **Evidence before scale. Human authority before consequential execution.**
