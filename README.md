@@ -1,109 +1,116 @@
+<div align="center">
+
 # Miha Tavčar
 
-**AI systems & product builder · human-directed automation · evidence-driven development**
+**AI systems & product builder**  
+Human-directed automation · systems thinking · evidence-driven development
 
-I'm a product- and systems-oriented builder based in Ljubljana, Slovenia. I use AI extensively to turn ambitious ideas into structured, testable projects — while keeping human authority, explicit state, verification and recovery at the center of the workflow.
+Building ambitious products with AI while keeping **human authority, explicit state, verification and recovery** at the center.
 
-I am not presenting myself as a senior software engineer. My strongest current value is in **product vision, systems thinking, workflow/governance design, AI-assisted prototyping, testing and project direction**, while I continue to deepen hands-on software-engineering skills.
+</div>
 
-## Selected work
+---
 
-### KORAKO YOLAWANI
+## Flagship: KORAKO YOLAWANI
 
-A human-directed operating layer for reliable AI-assisted work across models and tools.
+**A human-directed operating layer for reliable AI-assisted work across models, tools and long-running projects.**
 
-Korako Yolawani explores persistent project state, dependencies, risk-proportional authority, bounded execution, verification, recovery and continuation. **KORAKO** means the next right step; **YOLAWANI** represents the wider human-centered system around those steps.
+Korako is being designed around a simple problem: capable AI can do individual tasks, but people still carry too much of the coordination burden — remembering state, moving information between tools, resolving dependencies, approving consequential actions, checking whether execution really happened, and recovering when something fails.
 
-The implementation and security-sensitive engineering remain private; the public material intentionally exposes only the product thesis, architecture and evidence boundary. Earlier files and technical identifiers may still use the legacy name **KORA** while compatibility is preserved.
+**Current stage:** prototype / evidence-building  
+**Canonical implementation:** private  
+**Public surface:** product thesis, high-level architecture, sanitized evidence contracts and explicit limitations
 
-- **[Public showcase](KORA_PUBLIC_SHOWCASE.md)**
-- **[Engineering evidence & Golden Demo scorecard](KORA_EVIDENCE_INDEX.md)**
+> **Goal → Plan → Authority → Execution → Verification → Persistent continuation**
 
-### TRI-GLAV
+[**Korako public overview →**](KORAKO.md) · [**Engineering evidence →**](KORA_EVIDENCE_INDEX.md)
 
-An outdoor-safety product concept focused on helping people prepare better, navigate more reliably and return home safely.
+### What makes the direction different
 
-The primary public domain is **[www.tri-glav.si](https://www.tri-glav.si/)**. The site currently published there is a work in progress, not a finished application or a claim that planned safety capabilities are operational.
+- persistent project state instead of disposable single-turn task completion;
+- dependency-aware planning and safe parallel work;
+- risk-proportional human gates for consequential actions;
+- tool/model neutrality rather than dependence on one AI provider;
+- explicit distinction between **prepared, executed, verified and publicly reproduced**;
+- recovery and reversibility as product requirements, not afterthoughts;
+- less manual copying and coordination for the person using the system.
 
-The GitHub Pages site and its repository contain the first public website concept. They are retained as development history and are not the canonical live presentation.
+---
 
-- **[Primary live domain — work in progress](https://www.tri-glav.si/)**
-- **[First website concept repository](https://github.com/vcheeko/tri-glav-website)**
-- **[Historical GitHub Pages preview](https://vcheeko.github.io/tri-glav-website/)**
+## Selected projects
 
-### The First Second
+| Project | What it explores | Public status |
+| --- | --- | --- |
+| **KORAKO YOLAWANI** | Human-directed AI workflow orchestration, persistence, permissions, verification and recovery | **Prototype / evidence-building** · core private |
+| **[TRI-GLAV](https://github.com/vcheeko/tri-glav-website)** | Outdoor safety, route context and safer decision-making before and during mountain trips | Public website concept · [tri-glav.si](https://www.tri-glav.si/) is work in progress |
+| **[THE FIRST SECOND](https://github.com/vcheeko/the-first-second)** | A simulation-game experiment about time, identity, physics, memory and nested realities | First playable mechanics experiment |
 
-A simulation-game experiment about time, identity, physics, memory and nested realities. The public repository separates long-term cinematic 3D ambition from the small browser mechanics experiments used to test ideas first.
+I deliberately do **not** present concept-stage work as finished production software. Public repositories state what is implemented, what is experimental and what remains unproven.
 
-**[View the repository](https://github.com/vcheeko/the-first-second)**
+---
 
-## How I build with AI
+## How I work with AI
 
-I treat AI as a powerful engineering collaborator, not as proof that a result is correct.
+I use AI extensively for research, implementation assistance, critique, documentation and testing — but AI output is not treated as proof of correctness.
 
-| Responsibility | My approach |
+| Responsibility | Approach |
 | --- | --- |
-| Goal & scope | Human-directed |
-| Product/system decisions | Human-owned and explicitly documented |
+| Product goal & scope | Human-owned |
+| System and workflow design | Human-directed, explicitly documented |
 | Research & alternatives | AI-assisted, compared critically |
 | Implementation | AI-assisted where useful |
 | Review | Multiple-pass critique and risk checks |
 | Acceptance | Tests, evidence and human judgment |
 | Consequential actions | Stronger approval and verification |
 
-The useful question is not *"Was AI used?"* It is **who defined the goal, who owns the decision, how the output was checked, and whether the result can be reproduced or challenged.**
-
-## Engineering principles
-
-```text
-GOAL
-  ↓
-PLAN
-  ↓
-AUTHORITY
-  ↓
-EXECUTION
-  ↓
-VERIFICATION
-  ↓
-PERSISTENT CONTINUATION
-```
-
-I care particularly about:
-
-- human-directed AI and governed agent workflows;
-- durable project state and dependency-aware execution;
-- fail-closed behavior for important operations;
-- evidence before claims of completion;
-- recovery and reversibility;
-- keeping complex automation simple for the person using it.
-
-## What I can contribute
-
-- product and system decomposition;
-- AI-native workflow design;
-- rapid prototyping with modern AI development tools;
-- requirements, acceptance criteria and evaluation design;
-- structured testing and verification workflows;
-- safety-minded product thinking;
-- multilingual collaboration in Slovenian, German, English and Croatian.
-
-## Current direction
-
-I'm building **Korako Yolawani** while continuing to strengthen implementation depth through real projects. I'm open to:
-
-- a technical co-founder / lead engineer for Korako Yolawani;
-- AI/product and junior software-development opportunities;
-- pilot partners with measurable multi-step workflows;
-- reliability, security, evaluation and product-UX collaboration;
-- early-stage investor and mentor conversations grounded in evidence rather than claims.
-
-## Connect
-
-- [LinkedIn](https://www.linkedin.com/in/miha-tavcar-773502101/)
-- [GitHub repositories](https://github.com/vcheeko?tab=repositories)
-- [TRI-GLAV](https://www.tri-glav.si/)
+My strongest contribution is at the intersection of **product vision, systems decomposition, AI-native workflow design, acceptance criteria, prototyping, testing direction and project orchestration**. I am continuing to deepen hands-on software-engineering implementation and I actively value strong technical review rather than hiding that boundary.
 
 ---
 
+## Public / private boundary
+
+For Korako, the public GitHub is intentionally a **diligence surface, not a source dump**.
+
+**Public by design**
+- product problem and thesis;
+- high-level architecture and operating principles;
+- sanitized, non-sensitive evidence and test contracts;
+- current stage, limitations and collaboration needs.
+
+**Private by design**
+- canonical implementation and security-sensitive internals;
+- credentials, machine configuration and operational logs;
+- exact approval/security boundaries;
+- unpublished IP-sensitive material.
+
+This keeps enough material visible to evaluate the thinking and engineering discipline without publishing the core simply for appearance.
+
+---
+
+## What I care about
+
+`human authority` · `AI orchestration` · `persistent state` · `verification` · `recovery` · `safe parallelism` · `product systems` · `evidence before claims`
+
+Based in **Ljubljana, Slovenia**. I work in **Slovenian, German, English and Croatian**.
+
+---
+
+## Open to
+
+- a **technical co-founder / lead engineer** for Korako Yolawani;
+- independent reliability, security and architecture review;
+- pilot partners with measurable multi-step workflows;
+- AI/product and software-building opportunities where systems thinking and AI-native workflows are useful;
+- early-stage mentor and investor conversations grounded in evidence rather than inflated claims.
+
+### Connect
+
+[LinkedIn](https://www.linkedin.com/in/miha-tavcar-773502101/) · [Repositories](https://github.com/vcheeko?tab=repositories) · [TRI-GLAV](https://www.tri-glav.si/)
+
+---
+
+<div align="center">
+
 **Evidence before scale. Human authority before consequential execution.**
+
+</div>
