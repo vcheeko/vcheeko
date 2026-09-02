@@ -17,20 +17,19 @@ Today, the person often becomes the integration layer. They must remember what h
 
 Korako explores a different operating model:
 
-```text
-HUMAN GOAL
-    ↓
-PROJECT STATE
-    ↓
-PLAN + DEPENDENCIES
-    ↓
-AUTHORITY / HUMAN GATE
-    ↓
-BOUNDED EXECUTION
-    ↓
-VERIFICATION + EVIDENCE
-    ↓
-PERSISTENT CONTINUATION
+```mermaid
+flowchart LR
+    H[Human goal] --> S[Persistent project state]
+    S --> P[Plan + dependencies]
+    P --> A{Authority / risk}
+    A -->|safe to proceed| E[Bounded execution]
+    A -->|meaningful approval needed| G[Human gate]
+    G --> E
+    E --> V{Verification + evidence}
+    V -->|verified| C[Persistent continuation]
+    V -->|failed / uncertain| R[Recovery / blocked state]
+    R --> S
+    C --> S
 ```
 
 The interface should stay simpler than the machinery underneath it. A person should mainly need to understand:
