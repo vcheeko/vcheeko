@@ -7,7 +7,7 @@ This index is the safe entry point for public Korako engineering evidence. Snaps
 
 Some evidence filenames retain the `KORA_` prefix to preserve historical continuity and avoid rewriting evidence references simply for branding. The canonical public-facing product name is **Korako Yolawani**.
 
-- [Dedicated Korako Yolawani repository](https://github.com/vcheeko/korako-yolawani) - preferred public product entry point and current public evidence/runtime surface.
+- [Dedicated Korako Yolawani repository](https://github.com/vcheeko/korako-yolawani) - preferred public product entry point, current public evidence surface and future public-runtime home.
 - [Korako public overview](KORAKO.md) — current product thesis, design principles and public/private boundary.
 - [Public showcase](KORA_PUBLIC_SHOWCASE.md) - refreshed 2026-09-03 development narrative and current proof boundary.
 - [Engineering Evidence](KORA_ENGINEERING_EVIDENCE.md) — sanitized description of current private CI/test evidence and the M1–M6 acceptance ladder.
