@@ -30,7 +30,7 @@ Korako is being designed around a simple problem: capable AI can do individual t
 
 > **Goal → Plan → Authority → Execution → Verification → Persistent continuation**
 
-[**Korako public overview →**](KORAKO.md) · [**Engineering evidence →**](KORA_EVIDENCE_INDEX.md)
+[**Korako flagship repository**](https://github.com/vcheeko/korako-yolawani) | [**Public overview**](KORAKO.md) | [**Engineering evidence**](KORA_EVIDENCE_INDEX.md)
 
 ### What makes the direction different
 

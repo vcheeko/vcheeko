@@ -1,6 +1,6 @@
 # KORA — Engineering Evidence
 
-> **Snapshot date:** 2026-08-28  
+> **Snapshot date:** 2026-09-03
 > **Purpose:** expose a conservative, non-sensitive engineering evidence surface without publishing private KORA implementation.
 
 This page separates **what is currently evidenced in private engineering** from **what a public reviewer can independently reproduce today**.
@@ -114,9 +114,30 @@ The private proof checks that:
 
 This demonstrates a **real protocol-driver seam in CI**, not production dependency activation or deployment.
 
+## Productization progress since 2026-08-28
+
+The earlier persistence/database evidence remains part of the engineering baseline. Since that snapshot, private productization work has also produced verified or separately bounded milestones around:
+
+- human-facing Korako journey/workflow UI and a read-only shared-state projection;
+- a standalone persistent runner with bounded capabilities and restart handling;
+- one-click local launch with startup installation kept behind explicit approval;
+- Windows file-lock recovery for Korako-owned shared state;
+- hash-bound project writes with stale-precondition rejection and no ambient shell/merge/deploy authority;
+- client enforcement of the locked IZBOR/recommendation/no-dead-end presentation rule;
+- preparation of a fail-closed LinkedIn read-only OAuth canary while live account connection remains a Human Gate.
+
+The selected Personal Alpha integrated candidate currently has exact-head repository verification of **152/152 tests PASS**, TypeScript typecheck PASS, production build PASS and GitHub validation SUCCESS. It remains **DRAFT / UNMERGED / NON-ACTIVATING** and has not yet received the required physical Windows/PWA Golden acceptance on that exact head.
+
+This distinction is intentional:
+
+```text
+CI_PASS != WINDOWS_GOLDEN_VERIFIED
+UI_CLICK != EXECUTION_AUTHORITY
+```
+
 ## Public evidence-contract reproduction
 
-A dependency-free public harness is now available at [`public-evidence/kora-golden-v0.1/`](public-evidence/kora-golden-v0.1/), with the [Golden Reproduction Protocol](KORA_GOLDEN_REPRODUCTION_PROTOCOL.md).
+Dependency-free public harnesses are available in this profile repository, including the hardened v0.2 synthetic evidence vectors. A dedicated public product repository now also exists at https://github.com/vcheeko/korako-yolawani; its initial flagship/evidence surface is merged on main, and its public evidence workflow passed on the reviewed pre-merge exact head.
 
 The public GitHub Actions workflow has executed the harness from the public repository and returned the expected results for synthetic vectors:
 
@@ -125,6 +146,8 @@ The public GitHub Actions workflow has executed the harness from the public repo
 - missing expected evidence → FAIL.
 
 This makes those **published example semantics** inspectable and reproducible without an npm dependency or private source access.
+
+The hardened v0.2 public suite also rejects forged provenance, non-empty changed-file evidence, wrong verifier identity, duplicate evidence IDs, malformed hashes, contradictory terminal failure state, a non-completed terminal claim and an explicit verifier FAIL verdict. These remain synthetic public evidence-contract checks, not public reproduction of the private KORA runtime.
 
 It does **not** prove that the private KORA runtime is the same implementation, that private CI evidence is genuine, or that production KORA has been reproduced by an independent third party.
 
@@ -202,17 +225,17 @@ Until then, the correct public status is **prototype / evidence-building**.
 
 ## What comes next
 
-The credibility ladder is:
+The current credibility ladder is:
 
-1. independent technical/security review;
-2. findings recorded by severity rather than hidden;
-3. fixes linked to those findings;
-4. independent returned evidence against the public harness and reviewed private scope where appropriate;
-5. a real but low-risk pilot workflow;
-6. manual-vs-KORA baseline metrics;
-7. repeated runs showing reliability rather than a one-off success.
+1. physical exact-head Windows/PWA Golden acceptance for the selected Personal Alpha candidate;
+2. a minimal clean-clone public Golden runtime with positive, negative and recovery scenarios;
+3. independent technical/security review with findings recorded by severity;
+4. fixes linked to returned findings;
+5. independent reproduction against the public runtime and reviewed private scope where appropriate;
+6. a real but low-risk pilot workflow;
+7. manual-vs-Korako baseline metrics and repeated reliability runs.
 
-Useful pilot metrics include user interactions, manual transfers/copy-paste, elapsed time, incorrect state transitions, duplicate execution, recovery success and percentage of terminal claims backed by expected verification evidence.
+Useful pilot metrics include user interactions, manual inter-system relay/copy-paste, elapsed time, incorrect state transitions, duplicate execution, recovery success and percentage of terminal claims backed by expected verification evidence. Meaningful Human Gates remain separate from avoidable relay friction, and no time-saved claim should be emitted without a verified comparable baseline.
 
 ---
 
