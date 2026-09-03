@@ -2,57 +2,56 @@
 
 # Miha Tavčar
 
-**AI systems & product builder**  
-Human-directed automation · systems thinking · evidence-driven development
+**Founder — KORAKO YOLAWANI**  
+Human-directed AI systems · product orchestration · evidence-driven development
 
-Building ambitious products with AI while keeping **human authority, explicit state, verification and recovery** at the center.
+Ljubljana, Slovenia · Slovenian · German · English · Croatian
 
 </div>
 
 ---
 
-## Flagship: KORAKO YOLAWANI
+## Building: KORAKO YOLAWANI
 
 **A human-directed operating layer for reliable AI-assisted work across models, tools and long-running projects.**
 
-**Public product / brand:** **KORAKO YOLAWANI**  
-**Internal orchestration core:** **KORA**
+Korako Yolawani is being built around a simple problem: capable AI can complete individual tasks, but people still carry too much of the coordination burden — moving context between systems, remembering state, resolving dependencies, approving consequential actions, checking whether execution really happened and recovering when something fails.
 
-KORA is the core that coordinates governed execution inside Korako Yolawani; it is **not** the public product name or founder identity.
+> **Goal → Plan → Authority → Execution → Evidence → Verification → Persistent continuation**
 
-The journey metaphor also draws philosophical inspiration from the Japanese **道 (*michi*) — “path / way”**, including **人生の道 (*jinsei no michi*) — “the path of life.”** This is inspiration for the product philosophy, not a claim that “Korako Yolawani” is a Japanese translation.
-
-Korako is being designed around a simple problem: capable AI can do individual tasks, but people still carry too much of the coordination burden — remembering state, moving information between tools, resolving dependencies, approving consequential actions, checking whether execution really happened, and recovering when something fails.
+**Naming**
+- **KORAKO YOLAWANI** — public product and brand.
+- **KORA** — internal orchestration core.
+- **Mira** — conversational interface/persona.
 
 **Current stage:** prototype / evidence-building  
 **Canonical implementation:** private  
-**Public surface:** product thesis, high-level architecture, sanitized evidence contracts and explicit limitations
+**Public surface:** product thesis, high-level architecture, reproducible evidence contracts and explicit limitations
 
-> **Goal → Plan → Authority → Execution → Verification → Persistent continuation**
+[**Flagship repository →**](https://github.com/vcheeko/korako-yolawani) · [**Public overview →**](KORAKO.md) · [**Engineering evidence →**](KORA_EVIDENCE_INDEX.md)
 
-[**Korako flagship repository**](https://github.com/vcheeko/korako-yolawani) | [**Public overview**](KORAKO.md) | [**Engineering evidence**](KORA_EVIDENCE_INDEX.md)
+### What the system is designed around
 
-### What makes the direction different
-
-- persistent project state instead of disposable single-turn task completion;
-- dependency-aware planning and safe parallel work;
-- risk-proportional human gates for consequential actions;
-- tool/model neutrality rather than dependence on one AI provider;
-- explicit distinction between **prepared, executed, verified and publicly reproduced**;
-- recovery and reversibility as product requirements, not afterthoughts;
-- less manual copying and coordination for the person using the system.
+- **Human authority** for consequential decisions.
+- **Persistent state** across long-running work.
+- **Dependency-aware execution** and safe parallelism.
+- **Risk-proportional permissions** and Human Gates.
+- **Tool/model neutrality** where practical.
+- **Verification before trust** for important completion claims.
+- **Recovery and reversibility** as product requirements.
+- **Less human-postman work** between systems.
 
 ---
 
 ## Selected projects
 
-| Project | What it explores | Public status |
+| Project | Focus | Public status |
 | --- | --- | --- |
-| **KORAKO YOLAWANI** | Human-directed AI workflow orchestration, persistence, permissions, verification and recovery | **Prototype / evidence-building** · KORA core private |
-| **[TRI-GLAV](https://github.com/vcheeko/tri-glav-website)** | Outdoor safety, route context and safer decision-making before and during mountain trips | Public website concept · [tri-glav.si](https://www.tri-glav.si/) is work in progress |
-| **[THE FIRST SECOND](https://github.com/vcheeko/the-first-second)** | A simulation-game experiment about time, identity, physics, memory and nested realities | First playable mechanics experiment |
+| **[KORAKO YOLAWANI](https://github.com/vcheeko/korako-yolawani)** | Human-directed AI workflow orchestration, persistence, permissions, verification and recovery | Prototype / evidence-building · KORA core private |
+| **[TRI-GLAV](https://github.com/vcheeko/tri-glav-website)** | Outdoor safety, route context and safer decision-making before and during mountain trips | Public website concept · [tri-glav.si](https://www.tri-glav.si/) in progress |
+| **[THE FIRST SECOND](https://github.com/vcheeko/the-first-second)** | Simulation-game experiment about time, identity, physics, memory and nested realities | Early playable mechanics experiment |
 
-I deliberately do **not** present concept-stage work as finished production software. Public repositories state what is implemented, what is experimental and what remains unproven.
+I deliberately do **not** present concept-stage work as finished production software. Public repositories should make clear what is implemented, what is experimental and what remains unproven.
 
 ---
 
@@ -63,14 +62,14 @@ I use AI extensively for research, implementation assistance, critique, document
 | Responsibility | Approach |
 | --- | --- |
 | Product goal & scope | Human-owned |
-| System and workflow design | Human-directed, explicitly documented |
+| System / workflow design | Human-directed and explicitly documented |
 | Research & alternatives | AI-assisted, compared critically |
 | Implementation | AI-assisted where useful |
 | Review | Multiple-pass critique and risk checks |
 | Acceptance | Tests, evidence and human judgment |
 | Consequential actions | Stronger approval and verification |
 
-My strongest contribution is at the intersection of **product vision, systems decomposition, AI-native workflow design, acceptance criteria, prototyping, testing direction and project orchestration**. I am continuing to deepen hands-on software-engineering implementation and I actively value strong technical review rather than hiding that boundary.
+My strongest contribution is at the intersection of **product vision, systems decomposition, AI-native workflow design, acceptance criteria, prototyping, testing direction and project orchestration**. I continue to deepen hands-on software-engineering implementation and value strong technical review rather than hiding that boundary.
 
 ---
 
@@ -78,27 +77,9 @@ My strongest contribution is at the intersection of **product vision, systems de
 
 For Korako Yolawani, the public GitHub is intentionally a **diligence surface, not a source dump**.
 
-**Public by design**
-- product problem and thesis;
-- high-level architecture and operating principles;
-- sanitized, non-sensitive evidence and test contracts;
-- current stage, limitations and collaboration needs.
+**Public by design:** product problem, thesis, high-level architecture, sanitized evidence contracts, test/review protocols, current stage and limitations.
 
-**Private by design**
-- the canonical **KORA core implementation** and security-sensitive internals;
-- credentials, machine configuration and operational logs;
-- exact approval/security boundaries;
-- unpublished IP-sensitive material.
-
-This keeps enough material visible to evaluate the thinking and engineering discipline without publishing the core simply for appearance.
-
----
-
-## What I care about
-
-`human authority` · `AI orchestration` · `persistent state` · `verification` · `recovery` · `safe parallelism` · `product systems` · `evidence before claims`
-
-Based in **Ljubljana, Slovenia**. I work in **Slovenian, German, English and Croatian**.
+**Private by design:** canonical KORA implementation, credentials, machine configuration, security-sensitive internals, operational logs and unpublished IP-sensitive material.
 
 ---
 
@@ -110,29 +91,25 @@ Based in **Ljubljana, Slovenia**. I work in **Slovenian, German, English and Cro
 - AI/product and software-building opportunities where systems thinking and AI-native workflows are useful;
 - early-stage mentor and investor conversations grounded in evidence rather than inflated claims.
 
-### Connect
-
-[LinkedIn](https://www.linkedin.com/in/miha-tavcar-773502101/) · [Repositories](https://github.com/vcheeko?tab=repositories) · [TRI-GLAV](https://www.tri-glav.si/)
-
 ---
 
-## Founder’s note — why Korako?
+## Founder note
 
-Korako did not start as a name looking for a product. It started from a repeated frustration while working with AI: the models could often do individual tasks well, but I still had to become the **human postman** between conversations, tools and systems — carrying context, remembering what had already happened, deciding what should happen next, checking whether something was actually done and recovering when the chain broke.
+Korako began with a repeated frustration: AI could often do the individual task, but I still had to become the **human postman** between conversations, tools and systems — carrying context, deciding what should happen next, checking whether it actually happened and recovering when the chain broke.
 
-That led to a simple idea: instead of asking AI only for answers, build a system that helps a person move through complex work **one meaningful step at a time** while keeping the human in control.
+That led to a simpler product idea: help a person move through complex work **one meaningful step at a time**, while preserving continuity and keeping the human in control.
 
-The name **Korako** grew from that idea of *koraki* — steps. **Yolawani** represents the wider human journey around those steps: not only completing tasks, but preserving continuity, context and the story of where a person is going.
+The name **Korako** grew from the idea of *koraki* — steps. **Yolawani** represents the wider human journey around those steps.
 
-There is also a small personal coincidence I like: my name is **Miha**, while the Japanese word **道 (*michi*)** means *path* or *way*. The sounds are close enough to make me smile, and **人生の道 (*jinsei no michi*) — “the path of life”** fits the philosophy behind Korako unusually well.
-
-It is not the linguistic origin of my name or a translation of Korako Yolawani. It is simply one of those coincidences that made the idea feel a little more personal.
+There is also a personal coincidence I like: the Japanese word **道 (*michi*)** means *path* or *way*, and **人生の道 (*jinsei no michi*)** can be read as *the path of life*. It is philosophical inspiration, not the linguistic origin or translation of Korako Yolawani.
 
 **KORA is the core. Korako Yolawani is the product. The human journey is the reason for both.**
 
 ---
 
 <div align="center">
+
+[LinkedIn](https://www.linkedin.com/in/miha-tavcar-773502101/) · [Repositories](https://github.com/vcheeko?tab=repositories) · [TRI-GLAV](https://www.tri-glav.si/)
 
 **Evidence before scale. Human authority before consequential execution.**
 
