@@ -1,12 +1,17 @@
-# KORA — Public Showcase
+# Korako Yolawani - Public Showcase
 
 > **A human-directed operating layer for reliable AI-assisted work.**
 
+**Snapshot date:** 2026-09-03
+**Public product:** Korako Yolawani
+**Internal orchestration core:** KORA
+**Dedicated public repository:** https://github.com/vcheeko/korako-yolawani
+
 **Stage:** prototype / evidence-building  
 **Production-ready:** no  
-**Public-source implementation:** no — security-sensitive and canonical engineering remain private
+**Canonical KORA core source public:** no — security-sensitive and canonical engineering remain private
 
-This document is deliberately a **public diligence surface**, not a source-code release. It explains what KORA is trying to solve, how the system is structured at a high level, what has been exercised internally, and what is still unproven.
+This document is deliberately a **public diligence surface**, not a source-code release. It explains what Korako Yolawani is trying to solve, how the KORA core is structured at a high level, what has been exercised internally, what has changed since the earlier 2026-08-28 snapshot, and what is still unproven. The dedicated `korako-yolawani` repository is now the preferred public product entry point; this file remains the longer historical/engineering narrative.
 
 ## The problem
 
@@ -71,9 +76,27 @@ These statements describe **internal prototype evidence**, not independent publi
 
 A reviewer should therefore treat the items above as **claims backed by private project evidence, not as publicly reproduced results**.
 
-## What KORA is not
+## Development since 2026-08-28
 
-KORA is not currently:
+The project has moved materially beyond the earlier evidence snapshot. Sanitized, evidence-backed progress includes:
+
+- the public naming model is now explicit: **Korako Yolawani** is the product, **KORA** is the internal core and **Mira** is the conversational interface;
+- a human-facing journey/workflow shell, read-only shared-workstream projection and bounded runner-status surface have been integrated in private development;
+- a standalone persistent runner has been exercised with bounded read-only capabilities, crash/restart handling and fail-closed scope checks;
+- a one-click local Windows launch path has been exercised while Windows startup installation remains behind a separate Human Gate;
+- Windows state continuity has been hardened against real file-lock failures using validated generation fallback rather than unsafe overwrite;
+- a hash-bound project-write adapter has been exercised with stale-hash rejection and without granting arbitrary shell, merge or deploy authority;
+- the client interaction layer now binds the locked **IZBOR + recommendation + no-dead-end** policy;
+- a fail-closed LinkedIn bridge and read-only OAuth canary path have been prepared without claiming that an account is connected or that profile-edit authority exists;
+- a selected Personal Alpha candidate now passes **152/152 repository tests**, TypeScript typecheck, production build and GitHub CI on its exact head;
+- the exact-head physical Windows/PWA Golden acceptance for that selected candidate is still pending and is not represented as complete;
+- a dedicated public `korako-yolawani` repository has been created with a reproducible synthetic evidence-contract harness and passing public CI on its current draft surface; the full public Golden runtime is still pending.
+
+These are meaningful productization steps, but they do not change the overall public status from **prototype / evidence-building**.
+
+## What Korako Yolawani is not
+
+Korako Yolawani is not currently:
 
 - a foundation model;
 - a production-ready autonomous agent platform;
@@ -85,18 +108,20 @@ KORA is not currently:
 
 ## Current engineering target
 
-The most important milestone is a small end-to-end core that can repeatedly demonstrate:
+The current frontier is no longer simply "build a small end-to-end core." Two narrower proof obligations now matter most:
+
+1. **Personal Alpha exact-head Windows Golden** - run the selected integrated candidate on the physical Windows host and verify loopback runtime, restart/recovery, Human Gate UX, PWA install/offline behavior and the No-Postman measurement boundary on that exact head.
+2. **Public Golden runtime** - connect plan, authority, bounded execution, evidence, independent verification, persistent state and recovery in one clean-clone public runtime without exposing the private KORA core.
+
+After those, the credibility path is independent technical review and low-risk pilot evidence.
+
+The governing rule remains:
 
 ```text
-GOAL
-  → PLAN
-  → AUTHORIZED ACTION
-  → EXECUTION
-  → VERIFICATION
-  → PERSISTENT CONTINUATION
+PREPARED != EXECUTED != VERIFIED != PUBLICLY REPRODUCED
 ```
 
-The standard is not "the model said it completed the task." The standard is that the system can show **what happened, what evidence supports the state change, what remains uncertain, and what the next safe action is**.
+A CI-green candidate is not automatically a Windows Golden result, and a public evidence-contract verifier is not automatically a reproduction of the private runtime.
 
 ## Human / AI responsibility split
 
