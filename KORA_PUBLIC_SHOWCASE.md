@@ -90,7 +90,7 @@ The project has moved materially beyond the earlier evidence snapshot. Sanitized
 - a fail-closed LinkedIn bridge and read-only OAuth canary path have been prepared without claiming that an account is connected or that profile-edit authority exists;
 - a selected Personal Alpha candidate now passes **152/152 repository tests**, TypeScript typecheck, production build and GitHub CI on its exact head;
 - the exact-head physical Windows/PWA Golden acceptance for that selected candidate is still pending and is not represented as complete;
-- a dedicated public `korako-yolawani` repository has been created with a reproducible synthetic evidence-contract harness and passing public CI on its current draft surface; the full public Golden runtime is still pending.
+- a dedicated public `korako-yolawani` repository has been created with a reproducible synthetic evidence-contract harness and passing public CI on the merged public flagship surface; the full public Golden runtime is still pending.
 
 These are meaningful productization steps, but they do not change the overall public status from **prototype / evidence-building**.
 

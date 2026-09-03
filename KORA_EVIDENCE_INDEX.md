@@ -32,7 +32,7 @@ Public claims must never outrun the strongest evidence available.
 ## Current public state
 
 - dedicated `vcheeko/korako-yolawani` flagship repository: **CREATED**;
-- initial dedicated public evidence surface: **DRAFT / CI PASS**;
+- dedicated public flagship evidence surface: **MERGED / CI PASS**;
 - public synthetic evidence-contract harness: **CI PASS**;
 - selected Personal Alpha candidate: **CI PASS / WINDOWS GOLDEN PENDING**;
 - private runtime publicly reproduced: **NO**;

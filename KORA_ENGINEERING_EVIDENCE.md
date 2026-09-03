@@ -137,7 +137,7 @@ UI_CLICK != EXECUTION_AUTHORITY
 
 ## Public evidence-contract reproduction
 
-Dependency-free public harnesses are available in this profile repository, including the hardened v0.2 synthetic evidence vectors. A dedicated public product repository now also exists at https://github.com/vcheeko/korako-yolawani; its initial flagship/evidence surface is under draft review and its public evidence workflow has passed on the reviewed draft head.
+Dependency-free public harnesses are available in this profile repository, including the hardened v0.2 synthetic evidence vectors. A dedicated public product repository now also exists at https://github.com/vcheeko/korako-yolawani; its initial flagship/evidence surface is merged on main, and its public evidence workflow passed on the reviewed pre-merge exact head.
 
 The public GitHub Actions workflow has executed the harness from the public repository and returned the expected results for synthetic vectors:
 
