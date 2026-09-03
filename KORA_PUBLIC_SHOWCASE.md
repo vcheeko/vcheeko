@@ -26,7 +26,7 @@ Capable AI can perform individual tasks, but serious multi-step work still pushe
 - recovering after failure;
 - coordinating parallel work without corrupting canonical state.
 
-KORA explores an operating layer between **human intent** and **AI/tool execution**.
+Korako Yolawani explores an operating layer between **human intent** and **AI/tool execution**, with KORA as the internal orchestration core.
 
 ## Core hypothesis
 
@@ -57,7 +57,7 @@ flowchart TD
     R --> S
 ```
 
-A useful KORA interaction should feel much simpler than this diagram: the complexity belongs behind the interface, while the person sees the **current state, next valid action, meaningful blockers and approvals that actually matter**.
+A useful Korako Yolawani interaction should feel much simpler than this diagram: the complexity belongs behind the interface, while the person sees the **current state, next valid action, meaningful blockers and approvals that actually matter**.
 
 ## Prototype evidence boundary
 
@@ -125,7 +125,7 @@ A CI-green candidate is not automatically a Windows Golden result, and a public 
 
 ## Human / AI responsibility split
 
-KORA is being developed with extensive AI assistance. That is disclosed rather than hidden.
+Korako Yolawani is being developed with extensive AI assistance. That is disclosed rather than hidden.
 
 **Miha Tavčar:** product vision, systems thinking, workflow/governance design, acceptance criteria, AI-assisted prototyping, testing direction and project decisions.
 
@@ -159,14 +159,14 @@ The next credibility upgrades are intentionally measurable:
 
 1. a reproducible public Golden Demo using non-sensitive tasks;
 2. visible acceptance tests and pass/fail criteria;
-3. a small public evaluation set comparing KORA-assisted work with a manual baseline;
+3. a small public evaluation set comparing Korako-assisted work with a manual baseline;
 4. independent technical review of architecture and failure handling;
 5. documented recovery from deliberately injected failures;
 6. pilot evidence showing reduced user burden without hiding risk.
 
 ## Collaboration
 
-KORA would benefit most from:
+Korako Yolawani would benefit most from:
 
 - a technical co-founder / lead engineer with strong backend and systems judgment;
 - reliability and security engineering review;
