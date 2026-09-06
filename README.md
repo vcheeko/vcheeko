@@ -2,7 +2,7 @@
 
 # Miha Tavčar
 
-**Founder — KORAKO YOLAWANI**  
+**Founder — KORAKO YOLAWANI & TRI-GLAV**  
 Human-directed AI orchestration · product systems · evidence-driven development
 
 Ljubljana, Slovenia · Slovenian · German · English · Croatian
@@ -37,11 +37,9 @@ There is also a philosophical parallel I like in Japanese:
 
 This Japanese expression is **inspiration and a conceptual parallel, not the linguistic origin or literal translation of Korako Yolawani**.
 
-The product idea behind the name is simple:
-
 > **A life is not one task. It is a journey made of steps. Korako helps the human move through those steps without losing the journey.**
 
-**KORA** is the private orchestration core. **Mira** is the conversational interface. **Korako Yolawani** is the product and the human journey around both.
+**Mira** is the conversational interface. A private orchestration core coordinates the underlying work. **Korako Yolawani** is the public product and the human journey around both.
 
 ### Development snapshot · 2026-09-06
 
