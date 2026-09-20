@@ -23,30 +23,30 @@ Korako is being built to reduce human-postman work between otherwise capable sys
 
 **Mira** is the conversational interface. A private orchestration core coordinates the underlying work. **Korako Yolawani** is the public product and the human journey around both.
 
-### Current build step — Golden Demo / PROOF-001
+### Current build step — MIRA FIRST → ONE VERIFIED JOURNEY
 
-**Status date:** 2026-09-10  
-**Stage:** active prototype / Golden Demo validation  
+**Status date:** 2026-09-21  
+**Stage:** active prototype / core reliability verification  
 **Production-ready:** no  
 **Canonical implementation:** private
 
-The current focus is proving one useful Mira journey end to end rather than expanding feature count.
+The current focus is deliberately narrow: stabilize the Mira conversation core before expanding modules, investor claims or beta scale.
 
-**Latest internally verified progress**
-- the current private Golden Demo line passes **413 automated tests with 0 failures and 1 environment-dependent skip**;
-- TypeScript validation and a production Webpack build pass;
-- the production runtime responds successfully on the local application root;
-- deterministic calculator, current weather, Slovenian cinema schedule lookup, Slovenia job search and Tirol job search have passed live runtime smoke checks;
-- consequential email sending still stops at a **Human Gate** and remains preview-only without approval;
-- local/free-first speech-to-text is available in the current development runtime.
+**Current verified / merged progress**
+- the public KORA Trust Contract v0.1 remains reproducible from the public Korako repository;
+- KVSP v0.1 is merged in the private canonical runtime as the machine-readable verified-work spine;
+- Mira Text Core was reconciled and merged to the canonical private `main` on 2026-09-20;
+- the Mira voice 3-path trace has identified the exact convergence gap instead of treating voice failures as an unknown problem.
 
-**Still in validation**
-- natural voice completion and browser/TTS acceptance;
-- live LPP departure retrieval under the bounded runtime path;
-- repeated end-to-end Mira voice → useful action → independent verification evidence;
-- external-user and third-party reproduction evidence.
+**Active verification gate**
+- Space and orb activation are already traced to the same main conversation controller;
+- a true `Hey Mira` wake entry, `Stop Mira` interruption behavior and the unified voice candidate still require exact-head checking plus real browser/runtime proof;
+- MIRA CORE is not DONE until the governed runtime achieves **10 consecutive full-path PASS runs** without duplicate session/listener/TTS behavior.
 
-**Next gate:** browser/voice acceptance → canonical product merge → external tester evidence → sanitized public proof update.
+**Sequence**
+`MIRA CORE VERIFIED → ONE VERIFIED JOURNEY → external cohort evidence → measured Time Returned / retention`
+
+No production-readiness, product-market-fit, voice-reliability or external-user-success claim is made before the corresponding evidence exists.
 
 [**Follow PROOF-001 — Voice → Verified Action →**](https://github.com/vcheeko/korako-yolawani/issues/3)
 
