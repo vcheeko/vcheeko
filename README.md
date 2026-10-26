@@ -3,7 +3,7 @@
 # Miha Tavčar
 
 **Founder — Korako Yolawani**  
-*Making important work easier, one step at a time.*
+*Human first. AI by your side.*
 
 Ljubljana, Slovenia
 
@@ -21,13 +21,15 @@ The idea is simple: people should be able to explain what they want to achieve, 
 
 **Mira** is the planned conversational front door. Korako's underlying system is designed to coordinate tools and workflows while preserving human authority.
 
-### First market hypothesis
+### Korako People and Korako Business
 
-We are exploring a focused starting offer for **independent consultants** who spend too much time on client emails, follow-ups, commitments and scheduling. The goal is to reduce repetitive administration and missed follow-ups, not to add another complicated tool.
+**One product, two connected areas:** Korako People supports job search, applications and interview preparation; Korako Business supports customer conversations, meetings and follow-through. These are product directions in development, not two complete services.
 
-This target market and its willingness to pay are **not yet validated**.
+**First business hypothesis:** small US residential HVAC companies, helping office teams understand which customer enquiries remain unresolved, what should happen next and who is responsible.
 
-### Additional journey under exploration: finding work
+**Immediate priority:** a working, independently verified core and one complete workflow before inviting others to try it. Customer demand and business results still need to be tested.
+
+### Korako People: finding work
 
 We also want to help **job seekers** move through a complete, human-controlled career journey:
 
