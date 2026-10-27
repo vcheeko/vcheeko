@@ -3,7 +3,7 @@
 # Miha Tavčar
 
 **Founder — Korako Yolawani**  
-*Human first. AI by your side.*
+*A More Human Tomorrow.*
 
 Ljubljana, Slovenia
 
