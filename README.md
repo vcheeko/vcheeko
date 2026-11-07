@@ -15,11 +15,12 @@ Ljubljana, Slovenia
 
 ## One focus: Korako Yolawani
 
-I am building **Korako Yolawani**, a human-first AI companion designed to help people handle important work with less administration and more control.
+I’m building **Korako Yolawani**, a personal AI companion that helps you work toward bigger goals one step at a time.
 
-The idea is simple: people should be able to explain what they want to achieve, understand the next step, approve important actions, and see what was actually completed.
+Tell Mira what you want to accomplish. Korako is designed to coordinate the work across tools in the background and show you where you are, what’s underway, what’s done, and where your decision is needed.
 
-**Mira** is the planned conversational front door. Korako's underlying system is designed to coordinate tools and workflows while preserving human authority.
+<details>
+<summary><strong>Where Korako could help</strong></summary>
 
 ### Korako People and Korako Business
 
@@ -40,6 +41,8 @@ We also want to help **job seekers** move through a complete, human-controlled c
 - track applications, replies and next steps.
 
 These are **planned and experimental product capabilities**, not a claim of a complete public job-search service. Applications or messages should not be sent without the person's approval.
+
+</details>
 
 ### Principles
 
